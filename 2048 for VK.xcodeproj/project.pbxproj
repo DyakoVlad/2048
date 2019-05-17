@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		176AD6D5228DB7C400B7D2D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176AD6D4228DB7C400B7D2D0 /* Assets.xcassets */; };
 		17CC7B3C22831E6B00432D9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC7B3B22831E6B00432D9B /* AppDelegate.swift */; };
 		17CC7B3E22831E6B00432D9B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC7B3D22831E6B00432D9B /* GameViewController.swift */; };
 		17CC7B4122831E6B00432D9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CC7B3F22831E6B00432D9B /* Main.storyboard */; };
-		17CC7B4322831E6D00432D9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CC7B4222831E6D00432D9B /* Assets.xcassets */; };
 		17CC7B4622831E6D00432D9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CC7B4422831E6D00432D9B /* LaunchScreen.storyboard */; };
 		17CC7B5422832CAE00432D9B /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC7B5322832CAE00432D9B /* GameCell.swift */; };
 		17CC7B5622832D1200432D9B /* RestartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC7B5522832D1200432D9B /* RestartButton.swift */; };
@@ -18,11 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		176AD6D4228DB7C400B7D2D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17CC7B3822831E6B00432D9B /* 2048 for VK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2048 for VK.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CC7B3B22831E6B00432D9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17CC7B3D22831E6B00432D9B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		17CC7B4022831E6B00432D9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		17CC7B4222831E6D00432D9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17CC7B4522831E6D00432D9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17CC7B4722831E6D00432D9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17CC7B5322832CAE00432D9B /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
@@ -61,23 +61,23 @@
 			isa = PBXGroup;
 			children = (
 				17CC7B4722831E6D00432D9B /* Info.plist */,
-				17CC7B5022832BCF00432D9B /* Resource */,
+				17CC7B5022832BCF00432D9B /* Resources */,
 				17CC7B4F22832B2A00432D9B /* Storyboards */,
 				17CC7B4E22832B2300432D9B /* Controllers */,
-				17CC7B4D22832B1700432D9B /* Models */,
+				17CC7B4D22832B1700432D9B /* CustomViews */,
 				17CC7B3B22831E6B00432D9B /* AppDelegate.swift */,
 				17CC7B5822859A5400432D9B /* Constants.swift */,
 			);
 			path = "2048 for VK";
 			sourceTree = "<group>";
 		};
-		17CC7B4D22832B1700432D9B /* Models */ = {
+		17CC7B4D22832B1700432D9B /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 				17CC7B5322832CAE00432D9B /* GameCell.swift */,
 				17CC7B5522832D1200432D9B /* RestartButton.swift */,
 			);
-			path = Models;
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		17CC7B4E22832B2300432D9B /* Controllers */ = {
@@ -97,12 +97,12 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		17CC7B5022832BCF00432D9B /* Resource */ = {
+		17CC7B5022832BCF00432D9B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				17CC7B4222831E6D00432D9B /* Assets.xcassets */,
+				176AD6D4228DB7C400B7D2D0 /* Assets.xcassets */,
 			);
-			path = Resource;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,7 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17CC7B4622831E6D00432D9B /* LaunchScreen.storyboard in Resources */,
-				17CC7B4322831E6D00432D9B /* Assets.xcassets in Resources */,
+				176AD6D5228DB7C400B7D2D0 /* Assets.xcassets in Resources */,
 				17CC7B4122831E6B00432D9B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
