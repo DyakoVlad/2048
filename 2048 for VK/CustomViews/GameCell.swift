@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
-class GameCell: UIView {
-    var width: Int
-    var value: Int
+class GameCell: UIView, AVAudioPlayerDelegate {
+    
+    var width: Int                              // cell width
+    var value: Int                              // cell value
+    var player: AVAudioPlayer?                  // AVAudio player
     
     override init(frame: CGRect) {
         self.width = Int(frame.width)
@@ -20,6 +23,7 @@ class GameCell: UIView {
         let numberLabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: width))
         numberLabel.font = UIFont.systemFont(ofSize: CGFloat(width/2 - 3), weight: .black)
         numberLabel.textAlignment = .center
+        // probability of 2: 80%, of 4: 20%
         if Int.random(in: 0...100) <= 20 {
             numberLabel.text = "4"
             backgroundColor = UIColor.colour4
@@ -29,13 +33,17 @@ class GameCell: UIView {
             backgroundColor = UIColor.colour2
         }
         self.addSubview(numberLabel)
+        if UserDefaults.standard.bool(forKey: "soundOn") {
+            self.playSound(false)
+        }
+        // appear animation
         let appear = CASpringAnimation(keyPath: "transform.scale")
-        appear.duration         = 0.55
-        appear.fromValue        = 0.1
-        appear.toValue          = 1.0
-        appear.autoreverses     = false
-        appear.repeatCount      = 0
-        appear.damping          = 13
+        appear.duration             = 0.6
+        appear.fromValue            = 0.1
+        appear.toValue              = 1.0
+        appear.autoreverses         = false
+        appear.repeatCount          = 0
+        appear.damping              = 13
         
         self.layer.add(appear, forKey: "appear")
     }
@@ -44,6 +52,10 @@ class GameCell: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    ///
+    /**
+        Changes cell value and color
+     */
     
     func changeValue(newValue: Int) {
         self.value = newValue
@@ -111,8 +123,13 @@ class GameCell: UIView {
         self.addSubview(numberLabel)
     }
     
+    ///
+    /**
+        Moves cell to new position
+     */
+    
     func moveCell(to: [Int], newValue: Int) {
-        UIView.animate(withDuration: 0.13, animations: {
+        UIView.animate(withDuration: 0.125) {
             var frame = self.frame
             frame.origin.x = CGFloat(to[0])
             frame.origin.y = CGFloat(to[1])
@@ -120,15 +137,47 @@ class GameCell: UIView {
             self.frame = frame
             if self.value != newValue {
                 self.changeValue(newValue: newValue)
+                // bounce animation
                 let pulse = CASpringAnimation(keyPath: "transform.scale")
                 pulse.duration      = 0.2
                 pulse.fromValue     = 1.0
-                pulse.toValue       = 1.2
+                pulse.toValue       = 1.15
                 pulse.autoreverses  = false
                 pulse.repeatCount   = 0
             
                 self.layer.add(pulse, forKey: "pulse")
+                if UserDefaults.standard.bool(forKey: "soundOn") {
+                    self.playSound(true)
+                }
             }
-        })
+        }
+    }
+    
+    ///
+    /**
+        Plays sound
+     */
+    
+    func playSound(_ appear: Bool) {
+        guard let url = Bundle.main.url(forResource: appear ? "appear" : "bump", withExtension: "wav") else { return }
+        
+        do {
+            if #available(iOS 10.0, *) {
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+            } else {
+                // Fallback on earlier versions
+            }
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.wav.rawValue)
+            
+            guard let player = player else { return }
+            
+            player.stop()
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
 }

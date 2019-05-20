@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		176AD6D5228DB7C400B7D2D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176AD6D4228DB7C400B7D2D0 /* Assets.xcassets */; };
+		17BE792622917FB500731CCD /* GameControlsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BE792522917FB500731CCD /* GameControlsExtension.swift */; };
+		17BE7928229182CC00731CCD /* AdditionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BE7927229182CC00731CCD /* AdditionalView.swift */; };
+		17BE79392291FF6000731CCD /* bump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 17BE79372291FF5F00731CCD /* bump.wav */; };
+		17BE793A2291FF6000731CCD /* appear.wav in Resources */ = {isa = PBXBuildFile; fileRef = 17BE79382291FF6000731CCD /* appear.wav */; };
+		17BE793C2292CFF500731CCD /* SoundControlsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BE793B2292CFF500731CCD /* SoundControlsExtension.swift */; };
 		17CC7B3C22831E6B00432D9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC7B3B22831E6B00432D9B /* AppDelegate.swift */; };
 		17CC7B3E22831E6B00432D9B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC7B3D22831E6B00432D9B /* GameViewController.swift */; };
 		17CC7B4122831E6B00432D9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CC7B3F22831E6B00432D9B /* Main.storyboard */; };
@@ -19,6 +24,11 @@
 
 /* Begin PBXFileReference section */
 		176AD6D4228DB7C400B7D2D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		17BE792522917FB500731CCD /* GameControlsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControlsExtension.swift; sourceTree = "<group>"; };
+		17BE7927229182CC00731CCD /* AdditionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalView.swift; sourceTree = "<group>"; };
+		17BE79372291FF5F00731CCD /* bump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bump.wav; sourceTree = "<group>"; };
+		17BE79382291FF6000731CCD /* appear.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = appear.wav; sourceTree = "<group>"; };
+		17BE793B2292CFF500731CCD /* SoundControlsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundControlsExtension.swift; sourceTree = "<group>"; };
 		17CC7B3822831E6B00432D9B /* 2048 for VK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2048 for VK.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CC7B3B22831E6B00432D9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17CC7B3D22831E6B00432D9B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +86,7 @@
 			children = (
 				17CC7B5322832CAE00432D9B /* GameCell.swift */,
 				17CC7B5522832D1200432D9B /* RestartButton.swift */,
+				17BE7927229182CC00731CCD /* AdditionalView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -84,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				17CC7B3D22831E6B00432D9B /* GameViewController.swift */,
+				17BE792522917FB500731CCD /* GameControlsExtension.swift */,
+				17BE793B2292CFF500731CCD /* SoundControlsExtension.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -100,6 +113,8 @@
 		17CC7B5022832BCF00432D9B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				17BE79382291FF6000731CCD /* appear.wav */,
+				17BE79372291FF5F00731CCD /* bump.wav */,
 				176AD6D4228DB7C400B7D2D0 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -137,6 +152,11 @@
 				TargetAttributes = {
 					17CC7B3722831E6B00432D9B = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -163,8 +183,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17BE79392291FF6000731CCD /* bump.wav in Resources */,
 				17CC7B4622831E6D00432D9B /* LaunchScreen.storyboard in Resources */,
 				176AD6D5228DB7C400B7D2D0 /* Assets.xcassets in Resources */,
+				17BE793A2291FF6000731CCD /* appear.wav in Resources */,
 				17CC7B4122831E6B00432D9B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,11 +198,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17BE7928229182CC00731CCD /* AdditionalView.swift in Sources */,
+				17BE793C2292CFF500731CCD /* SoundControlsExtension.swift in Sources */,
 				17CC7B5922859A5400432D9B /* Constants.swift in Sources */,
 				17CC7B3E22831E6B00432D9B /* GameViewController.swift in Sources */,
 				17CC7B3C22831E6B00432D9B /* AppDelegate.swift in Sources */,
 				17CC7B5422832CAE00432D9B /* GameCell.swift in Sources */,
 				17CC7B5622832D1200432D9B /* RestartButton.swift in Sources */,
+				17BE792622917FB500731CCD /* GameControlsExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
